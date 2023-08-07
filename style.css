@@ -37,10 +37,47 @@ h1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-area: 1/1;
+  position: relative;
 }
 
 #slide-controls button {
   opacity: 0;
   appearance: none;
   -webkit-tap-highlight-color: rgba(0, 0,0,0);
+}
+
+#slide-thumb {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  pointer-events: none;
+}
+
+
+#slide-thumb > span {
+  display: block;
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.2);
+  background: blue;
+  margin: 5px;
+  border-radius: 4px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+#slide-thumb #thumb-item {
+  display: block;
+  height: inherit;
+  background: rgba(255,255,255, 0.9);
+  border-radius: 4px;
+  transform: translateX(100%);
+  animation: thumb 3s forwards linear running;
+}
+
+
+@keyframes thumb {
+  to {
+    transform: initial;
+  }
 }
